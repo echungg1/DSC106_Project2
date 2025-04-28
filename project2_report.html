@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Project 2 Report</title>
+    <style>
+      :root {
+        --color-neutral-95: hsl(220 10% 95%);
+        --color-neutral-90: hsl(220 10% 90%);
+        --color-neutral-80: hsl(220 10% 80%);
+        --color-neutral-70: hsl(220 10% 70%);
+        --color-neutral-60: hsl(220 10% 60%);
+        --color-neutral-50: hsl(220 10% 50%);
+        --color-neutral-40: hsl(220 10% 40%);
+        --color-neutral-30: hsl(220 10% 30%);
+        --color-neutral-20: hsl(220 10% 20%);
+        --color-neutral-10: hsl(220 10% 10%);
+      }
+
+      html {
+        font: 100%/1.5 system-ui;
+        counter-reset: figure;
+        background: var(--color-neutral-95);
+        max-width: min(75vw, 80em);
+        margin: 0 auto;
+      }
+
+      /* Headings */
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        line-height: 1.1;
+        font-weight: 600;
+        text-wrap: balance;
+      }
+
+      h1,
+      h2 {
+        border-bottom: 1px solid var(--color-neutral-80);
+        padding-bottom: 0.2em;
+      }
+
+      h1 {
+        margin-block: 1em 0.5rem;
+        font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+        font-weight: 800;
+
+        small {
+          display: block;
+          width: fit-content;
+          padding: 0.2em 0.5em;
+          margin-inline: auto;
+          color: white;
+          background: var(--color-neutral-40);
+          font-size: 40%;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+      }
+
+      h2 {
+        font-size: 180%;
+        color: var(--color-neutral-30);
+      }
+
+      h3 {
+        font-size: 130%;
+      }
+
+      /* Lists */
+
+      ul,
+      ol {
+        padding-inline-start: 2em;
+      }
+
+      li {
+        &::marker {
+          color: var(--color-neutral-40);
+        }
+
+        + li {
+          margin-top: 0.2em;
+        }
+      }
+
+      /* Sectioning elements */
+
+      header {
+        padding-block: 1em;
+        text-align: center;
+      }
+
+      main {
+        background: white;
+        color: var(--color-neutral-20);
+        border-radius: 1rem;
+        padding: 0.1rem 2rem;
+      }
+
+      /* Figures */
+
+      figure {
+        margin: 1em 0;
+        padding: 0.5rem;
+        margin-inline: -0.5em;
+        border: 1px solid var(--color-neutral-80);
+        box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+        text-align: center;
+        background: white;
+
+        > figcaption {
+          font: 500 75% var(--font-sans);
+          background: var(--color-neutral-95);
+          padding: 0.5rem;
+          margin: -0.5rem;
+          margin-top: 0.5rem;
+          counter-increment: figure;
+          text-align: left;
+
+          &::before {
+            content: 'Figure ' counter(figure) ': ';
+            font-weight: bold;
+            color: var(--color-neutral-40);
+          }
+
+          a:not(:hover, :focus, :active) {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: color-mix(
+              in lab,
+              currentColor,
+              transparent 70%
+            );
+          }
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <small>Assignment 4</small>
+        Persuasive or Deceptive Visualization?
+      </h1>
+
+      <p><strong>Esther Chung</strong> — <em>esc005@ucsd.edu</em></p>
+    </header>
+
+    <main>
+      <h2>Proposition: Male NYPD officers receive more complaints than female NYPD officers.</h2>
+
+      <section>
+        <h3>FOR the Proposition</h3>
+
+        <figure>
+          <img src="for_P2.png" alt="line plot that shows the drastic difference in the 
+            number of complaints between male and female NYPD officers" />
+          <figcaption>Male NYPD officers have consistently received far more complaints than female NYPD officers over time.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+          <li>Single Axis: 2 <br>I chose to plot the number of complaints for 
+          both the male and female officers on the same y-axis to allow for readers 
+          to compare the two through percetual work, rather than cognitive work.
+          This allows for this visualization to be very straightforward and preserves
+          transparency. </li>
+          <li>Elongating the y-axis: -0.5 <br>I increased the y-axis limit from 1000 to 
+          1200, which flattened both lines slightly. This made the line for female officers
+          even flatter than it already was, further exaggerating the difference. This allows
+          flattened the line for male officers, but not as extremely as the line for female.</li>
+          <li>Adding max badges: 1.5 <br>I added colored badges near the maximum points of 
+          each line and explicitly labeled them with the respective number of complaints. I 
+          colored the badges the same color of their corresponding line to be ensure easy association.
+          I originally thought to use text labels, but the labels looked a little out of place, and 
+          the badges create a stronger visual focus without it being overly distracting.</li>
+          <li>Adding complaint gap badge: -0.5 <br>I added another badge in between the two line
+          plots with the exact difference in number of complaints. By placing it in the middle of the
+          physical gap between the two lines, I subtly draw attention to the great distance between the lines.
+          I colored it gray to avoid overwhelming the visualization. I initially thought to color it
+          in a bright color, like red, but it made the visualization too busy.</li>
+          <li>Colors: 2 <br>I used a blue color for male officers and a dark orange for female officers to ensure
+          that this visualization was still effective to colorblind viewers. Blue is a color stereotypically 
+          associated with men, which was why I decided on the blue. I tried to use a pink/red color for the female
+          officers to continue this color association, but changed to a more colorblind friendly combo of blue and orange.</li>
+        
+        </ul>
+      </section>
+
+      <section>
+        <h3>AGAINST the Proposition</h3>
+
+        <figure>
+          <img src="against_P2.png" alt="deceptive line plot that shows the female officer line 
+            surpassing male officer line" />
+          <figcaption>After 2016, complaints against female NYPD officers appear to catch up to and even surpass those against male NYPD officers.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+          <li>Dual Axes: -2 <br>I decided to plot the number of complaints for male and female officers
+          on two separate y-axes. I chose a y-axis limit that "zoomed" in on the plot for female officers to
+          make it seem like it surpasses the plot for male officers. The y-axes intervals were colored gray
+          to try to downplay this deceptive trick, while the labels for the y-axes were color-coded accordingly.
+          I initially had the intervals colored in the colors of the respective lines along with the labels, but 
+          thought this would make it harder for readers to notice the two different axes.</li>
+          <li>Broken Axis: -1 <br>I removed the years 2006 through 2014, which showed a very volatile pattern for 
+          both plots. I jumped from 2005 to 2015 on the y-axis, which made the line for female officers clearly surpass 
+          the line for male officers. Without this break, it was more difficult to see this. I also started the x-axis 
+          from the year 2000, instead of 1985, to further highlight the pivotal moment where female officers appear to
+          receive more complaints than male officers.</li>
+          <li>Cultural Shift Badge: -0.5 <br>I included a badge to the right of a vertical line at 2016
+          to suggest that Hillary Clinton's nomination contributed to the increase in complaints against female officers
+          By adding the badge to the right of the line, I draw attention
+          away from the broken x-axis, making it harder for viewers to notice. I also colored the badge the same color as 
+          the female line to further tie in the narrative.</li>
+          <li>Colors: 2 <br>I used a blue color for male officers and a dark orange for female officers to ensure
+          that this visualization was still effective to colorblind viewers. Blue is a color stereotypically 
+          associated with men, which was why I decided on the blue. I tried to use a pink/red color for the female
+          officers to continue this color association, but changed to a more colorblind friendly combo of blue and orange.</li>
+        
+        </ul>
+      </section>
+
+      <section>
+        <h2>Final Reflection</h2>
+
+        <p>As I designed both visualizations, I noticed that making smaller choices were harder than making the bigger ones. For example, it was very straightforward when it came to choosing the type of plot I wanted to create, what narrative I wanted to tell, and what colors I wanted to use. On the other hand, it was very difficult to adjust the axis scales, decide which years to filter out, and add annotations to further my narrative. I noticed that it took me a lot longer to settle on these “smaller” decisions as it took a lot of trials to get it just right. It was hard to make my deceptive decisions subtle and unnoticeable. It surprised me that these “smaller” decisions actually made the most powerful changes to the visualizations. It was a fun challenge to try to balance effective storytelling with persuasive visualizations. 
+          <br><br>
+          I define “ethical analysis and visualization” as fully understanding the context of the visualization and recognizing how powerful each design choice is. I noticed how an earnest decision in one visualization, like adding annotations, can be used in deceptive ways in another. I experienced, first hand, how easy it is to frame the data to benefit the story you are trying to tell through these design choices. By fully understanding and recognizing the power design choices hold in visualizations can effectively make someone a more ethical data visualizer. 
+          <br><br>
+          I don’t think I can draw any clear bounds to distinguish “acceptable” persuasive choices vs. “misleading” ones. I think every design choice can be used for both persuasion and deception depending on how it’s applied. For example, someone might choose to visualize the first five years of a dataset to highlight the trend they want the viewers to see, while someone else could visualize everything except the first five years to argue the exact opposite. Both are using filtering as a design choice, but one is a persuasive choice and the other is a deceptive one. From this, I think the distinction boils down to what stance the visualizer is taking and whether that stance honestly represents the data. 
+          
+          
+          </p>
+      </section>
+    </main>
+  </body>
+</html>
